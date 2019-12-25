@@ -1,4 +1,4 @@
-#include "/Users/wilber/Documents/Jhelper-Project/tasks/Task.cpp"
+#include "/Users/wilber/Documents/Jhelper-Project/tasks/ATemporarilyUnavailable.cpp"
 
 #include <iostream>
 #include <fstream>
@@ -29,7 +29,7 @@ bool check(std::string expected, std::string actual) {
 
 int main() {
 	std::vector<jhelper::Test> tests = {
-		{"1", "43", true, true},{"0", "42", true, true},
+		{"9\n1 10 7 1\n3 3 3 0\n8 2 10 4\n8 2 10 100\n-10 20 -17 2\n-3 2 2 0\n-3 1 2 0\n2 3 2 3\n-1 3 -2 2\n", "7\n0\n4\n0\n30\n5\n4\n0\n3\n", true, true},
 	};
 	bool allOK = true;
 	int testID = 0;
@@ -48,7 +48,7 @@ int main() {
 			std::stringstream in(test.input);
 			std::ostringstream out;
 			std::clock_t start = std::clock();
-			Task solver;
+			ATemporarilyUnavailable solver;
 			solver.solve(in, out);
 			std::clock_t finish = std::clock();
 			double currentTime = double(finish - start) / CLOCKS_PER_SEC;

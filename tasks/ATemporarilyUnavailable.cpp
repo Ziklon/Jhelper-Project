@@ -11,25 +11,21 @@ typedef long long int64;
 class ATemporarilyUnavailable {
 public:
     void solve(std::istream &in, std::ostream &out) {
-        int t;
-        in >> t;
 
-        while (t--) {
-            int a, b, c, r;
-            in >> a >> b >> c >> r;
+        int a, b, c, r;
+        in >> a >> b >> c >> r;
 
-            if (a > b) swap(a, b);
+        if (a > b) swap(a, b);
 
-            int x = max(a, c - r);
-            int y = min(b, c + r);
+        int x = max(a, c - r);
+        int y = min(b, c + r);
 
-            if (x > b || y < a) {
-                out << b - a << '\n';
-            } else if (y < x) {
-                out << 0 << '\n';
-            } else {
-                out << (b - a) - (y - x) << '\n';
-            }
+        if (x > b || y < a) {
+            out << b - a << '\n';
+        } else if (y < x) {
+            out << 0 << '\n';
+        } else {
+            out << (b - a) - (y - x) << '\n';
         }
     }
 };

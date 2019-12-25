@@ -1,4 +1,4 @@
-#include "/Users/wilber/Documents/repo/Jhelper-Project/tasks/ATemporarilyUnavailable.cpp"
+#include "/Users/wilber/Documents/Jhelper-Project/tasks/ATemporarilyUnavailable.cpp"
 
 #include <iostream>
 #include <fstream>
@@ -49,7 +49,12 @@ int main() {
 			std::ostringstream out;
 			std::clock_t start = std::clock();
 			ATemporarilyUnavailable solver;
-			solver.solve(in, out);
+			int n;
+in >> n;
+for(int i = 0; i < n; ++i) {
+	solver.solve(in, out);
+}
+
 			std::clock_t finish = std::clock();
 			double currentTime = double(finish - start) / CLOCKS_PER_SEC;
 			maxTime = std::max(currentTime, maxTime);

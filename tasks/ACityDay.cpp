@@ -13,8 +13,10 @@ using namespace std;
 typedef long long int64;
 
 class ACityDay {
-public:
-    void solve(std::istream &in, std::ostream &out) {
-        out << 'x' << endl;
-    }
+ public:
+  void solve(std::istream &in, std::ostream &out) {
+    vector<int> v;
+    forn(i, 12)v.push_back(i);
+    out << v.size() << endl;
+  }
 };

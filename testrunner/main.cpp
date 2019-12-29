@@ -1,4 +1,4 @@
-#include "/Users/wilber/Documents/Jhelper-Project/tasks/BAAndB.cpp"
+#include "/Users/wilber/Documents/Jhelper-Project/tasks/ECommonSubsequence.cpp"
 
 #include <iostream>
 #include <fstream>
@@ -29,7 +29,7 @@ bool check(std::string expected, std::string actual) {
 
 int main() {
 	std::vector<jhelper::Test> tests = {
-		{"3\n1 3\n11 11\n30 20\n", "3\n0\n4\n", true, true},
+		{"2 2\n1 3\n3 1\n", "3\n", true, true},{"2 2\n1 1\n1 1\n", "6\n", true, true},{"4 4\n3 4 5 6\n3 4 5 6\n", "16\n", true, true},{"10 9\n9 6 5 7 5 9 8 5 6 7\n8 6 8 5 5 7 9 9 7\n", "191\n", true, true},{"20 20\n1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1\n", "846527861\n", true, true},
 	};
 	bool allOK = true;
 	int testID = 0;
@@ -48,13 +48,8 @@ int main() {
 			std::stringstream in(test.input);
 			std::ostringstream out;
 			std::clock_t start = std::clock();
-			BAAndB solver;
-			int n;
-in >> n;
-for(int i = 0; i < n; ++i) {
-	solver.solve(in, out);
-}
-
+			ECommonSubsequence solver;
+			solver.solve(in, out);
 			std::clock_t finish = std::clock();
 			double currentTime = double(finish - start) / CLOCKS_PER_SEC;
 			maxTime = std::max(currentTime, maxTime);

@@ -6,28 +6,33 @@
 
 #include <bits/stdc++.h>
 
+#define forn(i, n) for (int i = 0; i < (int)(n); ++i)
+#define fore(i, a, b) for (int i = (int)(a); i <= (int)(b); ++i)
 using namespace std;
 
-typedef long long int64;
+static int MOD = 1e9 + 7;
 
-class BAAndB {
+class ECommonSubsequence {
 public:
     void solve(std::istream &in, std::ostream &out) {
-        int64 a, b;
-        in >> a >> b;
-        if (a > b)swap(a, b);
+        int n, m;
+        in >> n >> m;
+        vector<int> u(n), v(m);
+        forn(i, n)in >> u[i];
+        forn(i, m)in >> v[i];
 
-        int64 ans = 1LL << 50;
-        int64 sum = a + b;
-        for (int i = 0; i < (1 << 20); ++i) {
-            int64 tmp = (i + 1) * i / 2;
-            int64 total = a + b + tmp;
-            if (total % 2 == 0 && tmp >= b - a) {
-                ans = i;
-                break;
+        vector<vector<int> > dp(n + 1, vector<int>(m + 1, 0));
+
+        forn(i, n + 1)dp[i][0] = 1;
+        forn(i, m + 1)dp[0][i] = 1;
+
+        fore(i, 1, n)fore(j, 1, m) {
+                dp[i][j] = (dp[i - 1][j] + dp[i][j - 1]) % MOD;
+                if (u[i - 1] != v[j - 1])
+                    dp[i][j] = (0LL + dp[i][j] - dp[i - 1][j - 1] + MOD) % MOD;
             }
-        }
-        out << ans << '\n';
+
+        out << dp[n][m] << endl;
     }
 };
 
@@ -35,14 +40,9 @@ public:
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    BAAndB solver;
+    ECommonSubsequence solver;
     std::istream &in(std::cin);
     std::ostream &out(std::cout);
-    int n;
-    in >> n;
-    for (int i = 0; i < n; ++i) {
-        solver.solve(in, out);
-    }
-
+    solver.solve(in, out);
     return 0;
 }

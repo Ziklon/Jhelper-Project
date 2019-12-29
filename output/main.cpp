@@ -10,20 +10,21 @@
 using namespace std;
 
 class ACityDay {
- public:
-  void solve(std::istream &in, std::ostream &out) {
-    vector<int> v;
-    forn(i, 12)v.push_back(i);
-    out << v.size() << endl;
-  }
+public:
+    void solve(std::istream &in, std::ostream &out) {
+        vector<int> v;
+        forn(i, 12)v.push_back(i);
+        out << v.size() << endl;
+    }
 };
 
+
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  ACityDay solver;
-  std::istream &in(std::cin);
-  std::ostream &out(std::cout);
-  solver.solve(in, out);
-  return 0;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ACityDay solver;
+    std::istream &in(std::cin);
+    std::ostream &out(std::cout);
+    solver.solve(in, out);
+    return 0;
 }

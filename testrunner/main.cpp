@@ -1,4 +1,4 @@
-#include "/Users/wilber/Documents/Jhelper-Project/tasks/ECommonSubsequence.cpp"
+#include "/Users/wilber/Documents/Jhelper-Project/tasks/ACityDay.cpp"
 
 #include <iostream>
 #include <fstream>
@@ -29,7 +29,7 @@ bool check(std::string expected, std::string actual) {
 
 int main() {
 	std::vector<jhelper::Test> tests = {
-		{"2 2\n1 3\n3 1\n", "3\n", true, true},{"2 2\n1 1\n1 1\n", "6\n", true, true},{"4 4\n3 4 5 6\n3 4 5 6\n", "16\n", true, true},{"10 9\n9 6 5 7 5 9 8 5 6 7\n8 6 8 5 5 7 9 9 7\n", "191\n", true, true},{"20 20\n1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1\n", "846527861\n", true, true},
+		{"10 2 2\n10 9 6 7 8 3 2 1 4 5\n", "3\n", true, true},{"10 2 3\n10 9 6 7 8 3 2 1 4 5\n", "8\n", true, true},{"5 5 5\n100000 10000 1000 100 10\n", "5\n", true, true},
 	};
 	bool allOK = true;
 	int testID = 0;
@@ -48,7 +48,7 @@ int main() {
 			std::stringstream in(test.input);
 			std::ostringstream out;
 			std::clock_t start = std::clock();
-			ECommonSubsequence solver;
+			ACityDay solver;
 			solver.solve(in, out);
 			std::clock_t finish = std::clock();
 			double currentTime = double(finish - start) / CLOCKS_PER_SEC;
